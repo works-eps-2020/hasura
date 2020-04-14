@@ -1,0 +1,13 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "public"."family_user"("family_id" uuid NOT NULL, "user_id"
+      uuid NOT NULL, PRIMARY KEY ("family_id","user_id") , FOREIGN KEY ("family_id")
+      REFERENCES "public"."family"("id") ON UPDATE no action ON DELETE no action,
+      FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON UPDATE no action
+      ON DELETE no action);
+  type: run_sql
+- args:
+    name: family_user
+    schema: public
+  type: add_existing_table_or_view

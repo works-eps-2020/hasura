@@ -3,9 +3,12 @@ services:
   postgres:
     image: postgres:12
     ports:
-      - "5433:5432"
+      - "5432:5432"
     networks:
-        - netnet
+      - netnet
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USERNAME: postgres
   hasura:
     image: hasura/graphql-engine:v1.1.1
     ports:
@@ -13,9 +16,9 @@ services:
     depends_on:
       - "postgres"
     networks:
-        - netnet
+      - netnet
     environment:
-      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:@postgres:5432/postgres
+      HASURA_GRAPHQL_DATABASE_URL: postgres://postgres:postgres@postgres:5432/postgres
       HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
       HASURA_GRAPHQL_ENABLED_APIS: "metadata,graphql"
       HASURA_GRAPHQL_ADMIN_SECRET: key
