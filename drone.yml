@@ -1,0 +1,19 @@
+kind: pipeline
+type: kubernetes
+name: default
+
+steps:
+  - name: run-migrations
+    image: hasura/graphql-engine:v1.1.1.cli-migrations
+    commands:
+      - cd migrations
+      - hasura-cli migrate apply --skip-update-check --endpoint=$ENDPOINT --admin-secret=$ADMIN_SECRET
+    environment:
+      ENDPOINT:
+        from_secret: ENDPOINT
+      ADMIN_SECRET:
+        from_secret: ADMIN_SECRET
+
+trigger:
+  branch:
+  - master
