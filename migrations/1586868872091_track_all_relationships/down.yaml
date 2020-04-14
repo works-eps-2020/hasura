@@ -1,0 +1,72 @@
+- args:
+    relationship: user
+    table:
+      name: document
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: topic
+    table:
+      name: document
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: topics
+    table:
+      name: level
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: trust_organization_domains
+    table:
+      name: organization
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: user_organizations
+    table:
+      name: organization
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: level
+    table:
+      name: topic
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: documents
+    table:
+      name: topic
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: organization
+    table:
+      name: trust_organization_domain
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: documents
+    table:
+      name: user
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: user_organizations
+    table:
+      name: user
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: organization
+    table:
+      name: user_organization
+      schema: public
+  type: drop_relationship
+- args:
+    relationship: user
+    table:
+      name: user_organization
+      schema: public
+  type: drop_relationship
