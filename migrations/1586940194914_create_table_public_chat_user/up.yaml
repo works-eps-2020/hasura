@@ -1,0 +1,13 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "public"."chat_user"("chat_id" uuid NOT NULL, "user_id" uuid
+      NOT NULL, "last_typed" timestamptz NOT NULL, PRIMARY KEY ("chat_id","user_id")
+      , FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON UPDATE no action
+      ON DELETE no action, FOREIGN KEY ("chat_id") REFERENCES "public"."chat"("id")
+      ON UPDATE no action ON DELETE no action);
+  type: run_sql
+- args:
+    name: chat_user
+    schema: public
+  type: add_existing_table_or_view

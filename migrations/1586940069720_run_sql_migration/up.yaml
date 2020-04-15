@@ -1,0 +1,13 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: |-
+      CREATE TABLE "chat" (
+          id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+          name VARCHAR(100)
+      );
+  type: run_sql
+- args:
+    name: chat
+    schema: public
+  type: add_existing_table_or_view

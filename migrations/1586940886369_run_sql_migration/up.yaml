@@ -1,0 +1,10 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: "CREATE OR REPLACE VIEW \"user_online\" AS \n SELECT id,\n    displayname,\n
+      \   last_seen\n   FROM \"user\"\n  WHERE (last_seen > (now() - '00:02:00'::interval));"
+  type: run_sql
+- args:
+    name: user_online
+    schema: public
+  type: add_existing_table_or_view

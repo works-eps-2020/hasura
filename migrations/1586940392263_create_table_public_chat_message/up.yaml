@@ -1,0 +1,19 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE EXTENSION IF NOT EXISTS pgcrypto;
+  type: run_sql
+- args:
+    cascade: false
+    read_only: false
+    sql: CREATE TABLE "public"."chat_message"("id" uuid NOT NULL DEFAULT uuid_generate_v4(),
+      "content" text NOT NULL, "user_id" uuid NOT NULL, "chat_id" uuid NOT NULL, "created_at"
+      timestamptz NOT NULL, "status" int2 NOT NULL, PRIMARY KEY ("id") , FOREIGN KEY
+      ("chat_id") REFERENCES "public"."chat"("id") ON UPDATE no action ON DELETE no
+      action, FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON UPDATE no
+      action ON DELETE no action);
+  type: run_sql
+- args:
+    name: chat_message
+    schema: public
+  type: add_existing_table_or_view
