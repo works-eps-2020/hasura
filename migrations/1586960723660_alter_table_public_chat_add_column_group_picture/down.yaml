@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."chat" DROP COLUMN "group_picture";
+  type: run_sql

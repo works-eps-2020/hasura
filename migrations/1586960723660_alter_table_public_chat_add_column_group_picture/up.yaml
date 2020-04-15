@@ -1,0 +1,5 @@
+- args:
+    cascade: false
+    read_only: false
+    sql: ALTER TABLE "public"."chat" ADD COLUMN "group_picture" text NULL;
+  type: run_sql
