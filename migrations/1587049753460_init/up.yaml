@@ -4,7 +4,7 @@
     sql: "create extension \"uuid-ossp\";\n\nCREATE TABLE \"organization\" (\n\t\"id\"
       UUID primary key DEFAULT uuid_generate_v4(),\n\t\"name\" VARCHAR(50),\n\t\"description\"
       VARCHAR(200)\n);\n\nCREATE TABLE \"user\" (\n\t\"id\" VARCHAR(50) primary key
-      DEFAULT uuid_generate_v4(),\n\t\"displayname\" VARCHAR(50),\n\t\"firstname\"
+      ,\n\t\"displayname\" VARCHAR(50),\n\t\"firstname\"
       VARCHAR(50),\n\t\"lastname\" VARCHAR(50),\n\t\"email\" VARCHAR(50),\n\t\"last_seen\"
       timestamp\n);\n\nCREATE TABLE \"chat\" (\n\t\"id\" UUID primary key DEFAULT
       uuid_generate_v4(),\n\t\"name\" VARCHAR(50),\n\t\"group_picture\" VARCHAR(200)\n);\n\nCREATE
