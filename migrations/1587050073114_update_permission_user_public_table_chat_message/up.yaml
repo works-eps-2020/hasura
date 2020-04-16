@@ -1,0 +1,26 @@
+- args:
+    role: user
+    table:
+      name: chat_message
+      schema: public
+  type: drop_select_permission
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - created_at
+      - chat_id
+      - id
+      - content
+      - user_id
+      computed_fields: []
+      filter:
+        chat:
+          chat_users:
+            user_id:
+              _eq: X-Hasura-User-Id
+    role: user
+    table:
+      name: chat_message
+      schema: public
+  type: create_select_permission

@@ -1,0 +1,280 @@
+- args:
+    name: chat_messages
+    table:
+      name: chat
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: chat_id
+        table:
+          name: chat_message
+          schema: public
+  type: create_array_relationship
+- args:
+    name: chat_users
+    table:
+      name: chat
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: chat_id
+        table:
+          name: chat_user
+          schema: public
+  type: create_array_relationship
+- args:
+    name: chat
+    table:
+      name: chat_message
+      schema: public
+    using:
+      foreign_key_constraint_on: chat_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: chat_message
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: chat
+    table:
+      name: chat_user
+      schema: public
+    using:
+      foreign_key_constraint_on: chat_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: chat_user
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: document
+      schema: public
+    using:
+      foreign_key_constraint_on: owner_id
+  type: create_object_relationship
+- args:
+    name: topic
+    table:
+      name: document
+      schema: public
+    using:
+      foreign_key_constraint_on: topic_id
+  type: create_object_relationship
+- args:
+    name: topics
+    table:
+      name: level
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: level_id
+        table:
+          name: topic
+          schema: public
+  type: create_array_relationship
+- args:
+    name: user_levels
+    table:
+      name: level
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: level_id
+        table:
+          name: user_level
+          schema: public
+  type: create_array_relationship
+- args:
+    name: trust_organization_domains
+    table:
+      name: organization
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: organization_id
+        table:
+          name: trust_organization_domain
+          schema: public
+  type: create_array_relationship
+- args:
+    name: user_organizations
+    table:
+      name: organization
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: organization_id
+        table:
+          name: user_organization
+          schema: public
+  type: create_array_relationship
+- args:
+    name: user_roles
+    table:
+      name: role
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: role_id
+        table:
+          name: user_role
+          schema: public
+  type: create_array_relationship
+- args:
+    name: level
+    table:
+      name: topic
+      schema: public
+    using:
+      foreign_key_constraint_on: level_id
+  type: create_object_relationship
+- args:
+    name: documents
+    table:
+      name: topic
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: topic_id
+        table:
+          name: document
+          schema: public
+  type: create_array_relationship
+- args:
+    name: organization
+    table:
+      name: trust_organization_domain
+      schema: public
+    using:
+      foreign_key_constraint_on: organization_id
+  type: create_object_relationship
+- args:
+    name: chat_messages
+    table:
+      name: user
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: chat_message
+          schema: public
+  type: create_array_relationship
+- args:
+    name: chat_users
+    table:
+      name: user
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: chat_user
+          schema: public
+  type: create_array_relationship
+- args:
+    name: documents
+    table:
+      name: user
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: owner_id
+        table:
+          name: document
+          schema: public
+  type: create_array_relationship
+- args:
+    name: user_levels
+    table:
+      name: user
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: user_level
+          schema: public
+  type: create_array_relationship
+- args:
+    name: user_roles
+    table:
+      name: user
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: user_role
+          schema: public
+  type: create_array_relationship
+- args:
+    name: user_organizations
+    table:
+      name: user
+      schema: public
+    using:
+      foreign_key_constraint_on:
+        column: user_id
+        table:
+          name: user_organization
+          schema: public
+  type: create_array_relationship
+- args:
+    name: level
+    table:
+      name: user_level
+      schema: public
+    using:
+      foreign_key_constraint_on: level_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: user_level
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: organization
+    table:
+      name: user_organization
+      schema: public
+    using:
+      foreign_key_constraint_on: organization_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: user_organization
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship
+- args:
+    name: role
+    table:
+      name: user_role
+      schema: public
+    using:
+      foreign_key_constraint_on: role_id
+  type: create_object_relationship
+- args:
+    name: user
+    table:
+      name: user_role
+      schema: public
+    using:
+      foreign_key_constraint_on: user_id
+  type: create_object_relationship

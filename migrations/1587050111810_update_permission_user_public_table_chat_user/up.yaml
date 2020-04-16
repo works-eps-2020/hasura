@@ -1,0 +1,19 @@
+- args:
+    permission:
+      allow_aggregations: false
+      columns:
+      - user_id
+      - chat_id
+      - last_typed
+      computed_fields: []
+      filter:
+        chat:
+          chat_users:
+            user_id:
+              _eq: X-Hasura-User-Id
+      limit: null
+    role: user
+    table:
+      name: chat_user
+      schema: public
+  type: create_select_permission

@@ -1,5 +1,0 @@
-- args:
-    cascade: false
-    read_only: false
-    sql: ALTER TABLE "user" ADD COLUMN "logo_url" VARCHAR(200);
-  type: run_sql

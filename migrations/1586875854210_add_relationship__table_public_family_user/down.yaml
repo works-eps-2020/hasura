@@ -1,6 +1,0 @@
-- args:
-    relationship: family
-    table:
-      name: family_user
-      schema: public
-  type: drop_relationship
